@@ -1,10 +1,17 @@
 RestaurantApp::Application.routes.draw do
 
+  get "welcome/index"
   #verb url => controller#action
+
+
+  resources :restaurants
   
+
+
   get '/tables' => 'tables#index'
-  get '/' => 'tables#welcome'
+  get '/' => 'welcome#index'
   get '/tables/:id' => 'tables#show'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
