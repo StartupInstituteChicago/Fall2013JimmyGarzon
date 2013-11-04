@@ -8,9 +8,12 @@
   <strong>Description:</strong>
   <%= @restaurant.description %>
 </p>
+
 <p>
-  <strong>Menu:</strong>
-  <%= @restaurant.menu %>
+<% if @restaurant.menu.present? %>
+	<strong>Menu:</strong>
+	<%=link_to "Menu", @restaurant.menu_url  %>
+<% end %>
 </p>
 
 <%=image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{url_encode(@full_address)}&markers=color:red|#{url_encode(@full_address)}&zoom=14&size=200x200&sensor=false&key=AIzaSyCxVAVnVf7eDwXzcbl3CUVQH6aMj7jrOhg"  %>
