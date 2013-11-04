@@ -1,0 +1,39 @@
+<div>
+<h1>Listing restaurants</h1>
+<input type="search" placeholder="Find a restaurant"/ >
+<hr/>
+</div>
+
+<table>
+	<tr>
+		<th>Pic</th>
+		<th>Name</th>
+		<th>Description</th>
+		<th>Menu</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<% gmap = "http://maps.googleapis.com/maps/api/staticmap?center=60452&zoom=12&size=400x400&sensor=false&key=AIzaSyCxVAVnVf7eDwXzcbl3CUVQH6aMj7jrOhg&markers=color:red"%>
+
+	<% @restaurants.each do |restaurant| %>
+		<tr>
+			<td><%=image_tag restaurant.image_url(:thumb).to_s %></td>
+			<td><%= restaurant.name%></td>
+			<td><%= restaurant.description %> </td>
+			
+			<td><%= link_to 'Show', restaurant %></td>
+			<td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+			<td><%= link_to 'Destroy', restaurant_path(restaurant),
+			method: :delete, data: {confirm: 'Are you sure?'} %></td>
+		</tr>
+		<% full_address = restaurant.street + ' ' + restaurant.city + ' ' +restaurant.state + ' ' + restaurant.zipcode
+ %>
+ <% gmap << '|' + "#{url_encode(full_address)}" unless full_address == "" %>
+	<% end %>
+</table>
+
+<%# gmap %>
+
+
+<%= link_to "New Restaurant", new_restaurant_path %>
+<p><%=image_tag gmap %></p>

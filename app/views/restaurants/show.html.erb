@@ -1,0 +1,22 @@
+<%= image_tag @restaurant.image_url(:masthead).to_s %>
+<p>
+  <strong>Name:</strong>
+  <%= @restaurant.name %>
+</p>
+ 
+<p>
+  <strong>Description:</strong>
+  <%= @restaurant.description %>
+</p>
+<p>
+  <strong>Menu:</strong>
+  <%= @restaurant.menu %>
+</p>
+
+<%=image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{url_encode(@full_address)}&markers=color:red|#{url_encode(@full_address)}&zoom=14&size=200x200&sensor=false&key=AIzaSyCxVAVnVf7eDwXzcbl3CUVQH6aMj7jrOhg"  %>
+<br>
+
+
+
+<%= link_to "Back", restaurants_path %>
+| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
