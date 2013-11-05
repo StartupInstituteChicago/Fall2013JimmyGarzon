@@ -1,10 +1,10 @@
 <div>
 <h1>Listing restaurants</h1>
-<input type="search" placeholder="Find a restaurant"/ >
+<input class="navbar-search" class="pull-right" type="search" placeholder="Find a restaurant"/ >
 <hr/>
 </div>
 
-<table>
+<table class='table table-striped'>
 	<tr>
 		<th>Pic</th>
 		<th>Name</th>
@@ -13,7 +13,7 @@
 		<th></th>
 		<th></th>
 	</tr>
-	<% gmap = "http://maps.googleapis.com/maps/api/staticmap?center=60452&zoom=12&size=400x400&sensor=false&key=AIzaSyCxVAVnVf7eDwXzcbl3CUVQH6aMj7jrOhg&markers=color:red"%>
+	<% gmap = "http://maps.googleapis.com/maps/api/staticmap?center=60452&zoom=12&size=400x400&sensor=false&key=#{@gmaps_key}&markers=color:red"%>
 
 	<% @restaurants.each do |restaurant| %>
 		<tr>

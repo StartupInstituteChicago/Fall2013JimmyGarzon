@@ -22,6 +22,7 @@ class RestaurantsController < ApplicationController
 
 	def index
 		@restaurants = Restaurant.find(:all)
+		@gmaps_key = ENV["GMAPS_API_KEY"]
 	end
 
 	def edit
