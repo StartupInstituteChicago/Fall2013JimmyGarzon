@@ -16,6 +16,7 @@ class RestaurantsController < ApplicationController
 	def show
 		@restaurant = Restaurant.find(params[:id])
 		@full_address = @restaurant.street + ' ' + @restaurant.city + ' ' +@restaurant.state + ' ' + @restaurant.zipcode
+		@gmaps_key = ENV["GMAPS_API_KEY"]
 	end
 
 

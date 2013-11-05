@@ -16,7 +16,7 @@
 <% end %>
 </p>
 
-<%=image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{url_encode(@full_address)}&markers=color:red|#{url_encode(@full_address)}&zoom=14&size=200x200&sensor=false&key=AIzaSyCxVAVnVf7eDwXzcbl3CUVQH6aMj7jrOhg"  %>
+<%=image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{url_encode(@full_address)}&markers=color:red|#{url_encode(@full_address)}&zoom=14&size=200x200&sensor=false&key=#{@gmaps_key}"  %>
 <br>
 
 
