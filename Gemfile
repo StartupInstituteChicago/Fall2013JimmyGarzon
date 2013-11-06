@@ -9,6 +9,10 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'dotenv-rails', :groups => [:development, :test]
 
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 

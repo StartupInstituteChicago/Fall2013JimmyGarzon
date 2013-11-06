@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
 	def new
 		@restaurant = Restaurant.new
 	end
@@ -15,7 +16,6 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		@full_address = @restaurant.street + ' ' + @restaurant.city + ' ' +@restaurant.state + ' ' + @restaurant.zipcode
 		@gmaps_key = ENV["GMAPS_API_KEY"]
 	end
 
@@ -32,7 +32,7 @@ class RestaurantsController < ApplicationController
 	def update
 		@restaurant = Restaurant.find(params[:id])
 
-		if @restaurant.update(params[:restaurant].permit(:name, :description, :street, :city, :state, :zipcode, :phone, :image, :remote_image_url, :menu))
+		if @restaurant.update(restaurant_params)
 			redirect_to @restaurant
 		else
 			render 'edit'
