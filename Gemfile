@@ -8,6 +8,7 @@ gem 'carmen-rails'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'devise'
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
