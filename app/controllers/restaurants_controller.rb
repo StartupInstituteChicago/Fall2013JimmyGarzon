@@ -1,13 +1,16 @@
 class RestaurantsController < ApplicationController
 
-	
+	before_filter :authenticate_owner!
+
 	def new
 		@restaurant = Restaurant.new
+
 	end
 
 	def create
 		@restaurant = Restaurant.new(restaurant_params)
-		
+		@restaurant.owner = current_owner
+
 		if @restaurant.save
 			redirect_to @restaurant
 		else
@@ -28,6 +31,10 @@ class RestaurantsController < ApplicationController
 
 	def edit
 		@restaurant = Restaurant.find(params[:id])
+		unless @restaurant.owner == current_owner
+			flash[:message] = "Please login with the appropiate credentials"
+			redirect_to @restaurant
+		end
 	end
 
 	def update
