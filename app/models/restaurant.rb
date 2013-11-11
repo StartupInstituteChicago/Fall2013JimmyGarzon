@@ -5,6 +5,8 @@ class Restaurant < ActiveRecord::Base
 
 	belongs_to :owner
 
+	validates_presence_of :name, :owner_id
+
 	def full_address
 		self.street + ' ' + self.city + ' ' +self.state + ' ' + self.zipcode
 	end

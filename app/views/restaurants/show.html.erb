@@ -1,4 +1,6 @@
 <%= image_tag @restaurant.image_url(:masthead).to_s %>
+
+
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -22,9 +24,8 @@
 
 <br>
 
-
-
-
-
 <%= link_to "Back", restaurants_path %>
-| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+
+<% if @restaurant.owner == current_owner %>
+	| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+<% end %>

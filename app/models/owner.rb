@@ -6,4 +6,6 @@ class Owner < ActiveRecord::Base
 
     has_many :restaurants
 
+    validates_presence_of :email, :name
+
 end
