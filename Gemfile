@@ -9,6 +9,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'devise'
+gem 'factory_girl_rails', "~> 4.0"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'

@@ -4,6 +4,8 @@ class Restaurant < ActiveRecord::Base
 	mount_uploader :menu, MenuUploader
 
 	belongs_to :owner
+	has_many :reservations, :dependent => :destroy
+	accepts_nested_attributes_for :reservations
 
 	validates_presence_of :name, :owner_id
 

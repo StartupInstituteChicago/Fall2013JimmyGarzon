@@ -1,9 +1,14 @@
 RestaurantApp::Application.routes.draw do
+  resources :reservations
+
   devise_for :owners
   
   root "welcome#index"
 
-  resources :restaurants
+  resources :restaurants do 
+    resources :reservations
+  end
+
   
   #the above line after 'rake routes' produces:
 #            Prefix Verb   URI Pattern                     Controller#Action

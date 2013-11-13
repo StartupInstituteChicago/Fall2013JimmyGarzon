@@ -4,12 +4,14 @@ class RestaurantsController < ApplicationController
 
 	def new
 		@restaurant = Restaurant.new
-
+		#reservation = @restaurant.reservations.build
 	end
 
 	def create
 		@restaurant = Restaurant.new(restaurant_params)
 		@restaurant.owner = current_owner
+		#reservation = @restaurant.reservations.build
+
 
 		if @restaurant.save
 			redirect_to @restaurant
@@ -45,6 +47,7 @@ class RestaurantsController < ApplicationController
 		else
 			render 'edit'
 		end
+
 	end
 
 	def destroy
