@@ -7,7 +7,7 @@ describe RestaurantsController do
 		end
 
 		it "should update restaurant properties" do
-			put :update, {id: 20}
+			put :update, {id: 10}
 			expect(@restaurant.name).to eq "Wendys" 
 
 		end
