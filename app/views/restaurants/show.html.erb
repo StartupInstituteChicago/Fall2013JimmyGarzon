@@ -27,43 +27,13 @@
 <%= link_to "Back", restaurants_path %>
 
 
-
 <% if @restaurant.owner == current_owner %>
 	| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 
-	<h2>Reservations for this restaurant</h2>
-
-	<table>
-		<tr>
-			<th>Email</th>
-			<th>Date</th>
-		</tr>
-
-		<% @restaurant.reservations.each do  |single_reservation| %>
-			<tr>
-				<td><%= single_reservation.email %></td>
-				<td><%= single_reservation.requested_date %></td>
-			</tr>
-		<% end %>
-	</table>
+	| <%= link_to "Reservations",   restaurant_reservations_path(@restaurant) %>
 
 <% else %>
-		<h3>Make a reservation</h3>
-		<%= form_for @restaurant, html: {"data-validate" => "parsley"} do  |f| %>
 
-		
-			<%= f.fields_for :reservation do  |builder|  %>
-
-				<%= builder.label :email %>
-				<%= builder.text_field :email, 'data-trigger' => 'change', 'data-required' =>'true', 'data-type' => 'email'  %>
-				<%= builder.label :message, "Message" %>
-				<%= builder.text_area :message %>
-			<% end %>
-		<p>
-			<%= f.submit "submit resevation"%><br>
-		</p>
-
-		<% end %>
-
+	| <%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
 
 <% end %>

@@ -1,0 +1,14 @@
+	<h2>Make a reservation</h2>
+	<%= form_for @reservation, url: restaurant_reservations_path do  |f| %>
+
+			<%= f.label :email %>
+			<%= f.text_field :email, 'data-trigger' => 'change', 'data-required' =>'true', 'data-type' => 'email'  %>
+			<%= f.label :message, "Message" %>
+			<%= f.text_area :message %>
+			<%= f.label :requested_date, "For when?" %>
+			<%= f.date_select :requested_date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => Time.now.year + 1} %>
+		
+		<p>
+			<%= f.submit "submit resevation"%><br>
+		</p>
+	<% end %>
