@@ -10,7 +10,9 @@ RoR and gems currently used by this app are:
 
 * Rspec
 
-* Devise...
+* devise
+
+* mailcatcher
 
 * ...
 

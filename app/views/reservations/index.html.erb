@@ -16,7 +16,7 @@
         <% @reservations.each do |reservation| %>
         <tr>
                 <td><%= reservation.email %></td>
-                <td><%= reservation.requested_date_time %></td>
+                <td><%= reservation.requested_date %></td>
                 <td><%= reservation.message %></td>
                 <td><%= link_to 'Destroy', restaurant_reservation_path(reservation.restaurant_id, reservation.id), method: :delete, data: {confirm: "Are you sure?"} %></td>
         </tr>

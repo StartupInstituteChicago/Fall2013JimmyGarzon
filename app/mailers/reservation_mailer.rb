@@ -1,6 +1,8 @@
 class ReservationMailer < ActionMailer::Base
   default from: "from@example.com"
-  def reservation_notification
-  	
+  
+  def send_reservation_email(reservation)
+  	@reservation = reservation
+  	mail( :to =>@reservation.email, :subject => 'Resevation confirmation')
   end
 end

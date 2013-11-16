@@ -9,11 +9,26 @@ class ReservationsController < ApplicationController
 		@reservation = @restaurant.reservations.new(reservation_params)
 
 		if @reservation.save
+			ReservationMailer.send_reservation_email(@reservation).deliver
+
 			redirect_to restaurant_reservation_path(@reservation.restaurant_id, @reservation.id)
 		else
 			render 'new'
 		end
 	end
+
+	def edit
+		@reservation = Reservation.find(params[:id])
+	end
+
+    def update #not working!
+        @reservation = Reservation.find(params[:id])
+        if @reservation.update(reservation_params)
+                redirect_to @reservation
+        else
+                render "edit"
+        end
+    end
 
 	def show
 		@reservation = Reservation.find(params[:id])
