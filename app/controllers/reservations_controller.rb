@@ -5,14 +5,16 @@ class ReservationsController < ApplicationController
 	end
 
 	def create
+   
 		@restaurant = Restaurant.find(params[:restaurant_id])
 		@reservation = @restaurant.reservations.new(reservation_params)
 
-		if @reservation.save
+		if @reservation.save and verify_recaptcha
 			ReservationMailer.send_reservation_email(@reservation).deliver
 
 			redirect_to restaurant_reservation_path(@reservation.restaurant_id, @reservation.id)
 		else
+			flash[:error] = "There was an error with the recaptcha code below. Please re-enter the code and click submit." 
 			render 'new'
 		end
 	end

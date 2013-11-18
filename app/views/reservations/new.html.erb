@@ -9,6 +9,8 @@
 			<p><%= f.date_select :requested_date, {:order => [:month, :day, :year],:prompt => true, :start_year => Time.now.year, :end_year => Time.now.year + 1} %></p>
 		
 		<p>
+
+			<%= recaptcha_tags %>
 			<%= f.submit "submit resevation"%><br>
 		</p>
 	<% end %>
