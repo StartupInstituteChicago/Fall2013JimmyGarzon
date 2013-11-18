@@ -10,6 +10,7 @@ gem 'rmagick'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'devise'
 gem 'factory_girl_rails', "~> 4.0"
+gem "recaptcha", :require => "recaptcha/rails"
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
