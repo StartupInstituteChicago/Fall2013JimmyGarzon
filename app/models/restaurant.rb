@@ -6,6 +6,8 @@ class Restaurant < ActiveRecord::Base
 	belongs_to :owner
 	has_many :reservations, :dependent => :destroy
 	accepts_nested_attributes_for :reservations
+  
+  has_and_belongs_to_many :restaurants
 
 	validates_presence_of :name, :owner_id
 

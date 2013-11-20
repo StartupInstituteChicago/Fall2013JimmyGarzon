@@ -1,4 +1,6 @@
 RestaurantApp::Application.routes.draw do
+  resources :categories
+
   get "owners/dashboard"
   resources :reservations
 
