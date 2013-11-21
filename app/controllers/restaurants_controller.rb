@@ -1,13 +1,17 @@
 class RestaurantsController < ApplicationController
 
-	
+	before_filter :authenticate_owner!
+	before_filter :credentials_filter, :only => [:edit, :destroy]
+
 	def new
 		@restaurant = Restaurant.new
 	end
 
 	def create
 		@restaurant = Restaurant.new(restaurant_params)
-		
+		@restaurant.owner = current_owner
+
+
 		if @restaurant.save
 			redirect_to @restaurant
 		else
@@ -18,6 +22,9 @@ class RestaurantsController < ApplicationController
 	def show
 		@restaurant = Restaurant.find(params[:id])
 		@gmaps_key = ENV["GMAPS_API_KEY"]
+
+		@can_edit = @restaurant.owner == current_owner
+
 	end
 
 
@@ -28,6 +35,7 @@ class RestaurantsController < ApplicationController
 
 	def edit
 		@restaurant = Restaurant.find(params[:id])
+
 	end
 
 	def update
@@ -38,6 +46,7 @@ class RestaurantsController < ApplicationController
 		else
 			render 'edit'
 		end
+
 	end
 
 	def destroy
@@ -49,6 +58,14 @@ class RestaurantsController < ApplicationController
 
 	private
 		def restaurant_params
-			params.require(:restaurant).permit(:name, :description, :street, :city, :state, :zipcode, :phone, :image, :remote_image_url, :menu)
+			params.require(:restaurant).permit(:name, :description, :street, :city, :state, :zipcode, :phone, :image, :remote_image_url, :menu, :category_ids => [])
 		end
+
+	def credentials_filter
+		owner = Restaurant.find(params[:id]).owner
+		unless owner == current_owner
+			flash[:message] = "Please login with the appropiate credentials"
+			redirect_to :root
+		end
+	end
 end

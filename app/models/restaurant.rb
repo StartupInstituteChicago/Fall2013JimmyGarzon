@@ -4,6 +4,12 @@ class Restaurant < ActiveRecord::Base
 	mount_uploader :menu, MenuUploader
 
 	belongs_to :owner
+	has_many :reservations, :dependent => :destroy
+	accepts_nested_attributes_for :reservations
+  
+  has_and_belongs_to_many :categories
+
+	validates_presence_of :name, :owner_id
 
 	def full_address
 		self.street + ' ' + self.city + ' ' +self.state + ' ' + self.zipcode

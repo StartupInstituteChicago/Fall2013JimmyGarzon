@@ -1,4 +1,6 @@
 <%= image_tag @restaurant.image_url(:masthead).to_s %>
+
+
 <p>
   <strong>Name:</strong>
   <%= @restaurant.name %>
@@ -7,6 +9,14 @@
 <p>
   <strong>Description:</strong>
   <%= @restaurant.description %>
+</p>
+
+<p>
+  <strong>Categories:</strong>
+  <% @restaurant.categories.each do |category| %>
+  <%= category.name %>
+  <% end %>
+
 </p>
 
 <p>
@@ -22,9 +32,16 @@
 
 <br>
 
-
-
-
-
 <%= link_to "Back", restaurants_path %>
-| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+
+
+<% if @restaurant.owner == current_owner %>
+	| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
+
+	| <%= link_to "Reservations",   restaurant_reservations_path(@restaurant) %>
+
+<% else %>
+
+	| <%= link_to "Make a reservation", new_restaurant_reservation_path(@restaurant) %>
+
+<% end %>

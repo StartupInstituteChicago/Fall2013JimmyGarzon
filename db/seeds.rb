@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+categories_arr = %w(American Chinese Mexican Spanish German Colombian Brazilian French Italian Thai)
+categories_arr.each {|category| Category.find_or_create_by(name: category)}
+
+10.times do |count|
+  Restaurant.create(name: "MyRestaurant_#{count+1}", description: "", street: "", city: "", state: "", zipcode: "", phone: "", image: nil, menu: nil, owner_id: 1)
+end
