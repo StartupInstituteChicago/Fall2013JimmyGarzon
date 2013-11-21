@@ -14,4 +14,13 @@ class Restaurant < ActiveRecord::Base
 	def full_address
 		self.street + ' ' + self.city + ' ' +self.state + ' ' + self.zipcode
 	end
+
+	attr_reader :category_tokens
+
+	def category_tokens=(ids)
+		self.category_ids = ids.split(",")
+	end
+
+
+
 end
