@@ -18,7 +18,17 @@
 		<%= f.label :description %><br>
 		<%= f.text_area :description %>
 	</p>
-		<p>
+
+	<p>
+		<%= f.label :category %><br>
+		<% Category.all.each do |category| %>
+		<%= check_box_tag "restaurant[category_ids][]", category.id, @restaurant.category_ids.include?(category.id) %>
+		<%= category.name %><br>
+		<% end %>
+	</p>
+
+
+	<p>
 		<%= f.label :street %><br>
 		<%= f.text_field :street %>
 	</p>

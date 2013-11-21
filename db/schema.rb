@@ -68,4 +68,9 @@ ActiveRecord::Schema.define(version: 20131121153248) do
     t.string   "owner_id"
   end
 
+  create_table "restaurants_categories", id: false, force: true do |t|
+    t.integer "category_id"
+    t.integer "restaurant_id"
+  end
+
 end

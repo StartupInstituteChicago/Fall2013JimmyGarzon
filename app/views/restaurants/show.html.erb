@@ -12,6 +12,14 @@
 </p>
 
 <p>
+  <strong>Categories:</strong>
+  <% @restaurant.categories.each do |category| %>
+  <%= category.name %>
+  <% end %>
+
+</p>
+
+<p>
 <% if @restaurant.menu.present? %>
 	<strong>Menu:</strong>
 	<%=link_to "Menu", @restaurant.menu_url  %>
