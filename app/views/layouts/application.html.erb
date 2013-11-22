@@ -3,7 +3,7 @@
 <head>
   <title>RestaurantApp</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "token-input" , "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,6 +26,8 @@
 <%= yield %>
 
 <hr>
+
+<%= yield :javascript %>
 
 </body>
 

@@ -20,6 +20,11 @@
 	</p>
 
 	<p>
+		<%= f.label :category_tokens, "Categories" %><br>
+		<%= f.text_field :category_tokens, "data-pre" => @restaurant.categories.to_json %>
+	</p>
+
+ 	<p>
 		<%= hidden_field_tag "restaurant[category_ids][]", nil%>
 		<%= f.label :category %><br>
 		<% Category.all.each do |category| %>
@@ -65,3 +70,15 @@
 	</p>
 
 	<% end %>
+
+<% content_for :javascript do %>
+  <script type='text/javascript'>
+    $(function () {
+		$("#restaurant_category_tokens").tokenInput("/categories.json", {
+			crossDomain: false,
+			prePopulate: $("#restaurant_category_tokens").data("pre"),
+			theme: "facebook"
+		})
+	});
+  </script>
+<% end %>
