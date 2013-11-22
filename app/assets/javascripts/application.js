@@ -17,10 +17,3 @@
 //= require bootstrap/bootstrap
 //= require parsley/parsley.js
 //= require jquery.tokeninput
-$(function () {
-    $("#restaurant_category_tokens").tokenInput("/categories.json", {
-    	crossDomain: false,
-    	prePopulate: $("#restaurant_category_tokens").data("pre"),
-    	theme: "facebook"
-    })
-});
