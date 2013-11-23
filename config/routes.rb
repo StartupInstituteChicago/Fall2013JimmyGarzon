@@ -3,6 +3,7 @@ RestaurantApp::Application.routes.draw do
 
   get "owners/dashboard"
   resources :reservations
+  resources :categories
 
   devise_for :owners
 

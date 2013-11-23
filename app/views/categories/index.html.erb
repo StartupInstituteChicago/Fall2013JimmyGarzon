@@ -1,0 +1,7 @@
+<h1>Restaurant Categories</h1>
+<%= render 'search' %>
+<ul>
+	<% @categories.each do |category| %>
+		<li><%= link_to category.name, category_path(category.id) %> <%= "(#{category.restaurants.count})"%></li>
+	<% end %>
+</ul>
