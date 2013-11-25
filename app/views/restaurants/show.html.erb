@@ -35,7 +35,7 @@
 <%= link_to "Back", restaurants_path %>
 
 
-<% if @restaurant.owner == current_owner %>
+<% if @restaurant.user == current_user %>
 	| <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>
 
 	| <%= link_to "Reservations",   restaurant_reservations_path(@restaurant) %>
