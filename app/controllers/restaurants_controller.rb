@@ -23,7 +23,6 @@ class RestaurantsController < ApplicationController
 		@gmaps_key = ENV["GMAPS_API_KEY"]
 
 		@can_edit = @restaurant.user == current_user
-
 	end
 
 
@@ -54,6 +53,27 @@ class RestaurantsController < ApplicationController
 
 		redirect_to restaurants_path		
 	end
+
+	def starred
+    	type = params[:type]
+    if type == "starred"
+    	current_user.favorites << @recipe
+    	redirect_to :back, notice: 'You stared #{@restaurant.name}'
+
+    elsif type == "unstarred"
+    	current_user.favorites.delete(@recipe)
+    	redirect_to :back, notice: 'Unstarred #{@restaurant.name}'
+
+    else
+      # Type missing, nothing happens
+    	redirect_to :back, notice: 'Nothing happened.'
+    end
+
+  end
+
+
+
+
 
 	private
 		def restaurant_params

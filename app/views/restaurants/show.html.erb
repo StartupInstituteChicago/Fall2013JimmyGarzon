@@ -1,5 +1,9 @@
 <%= image_tag @restaurant.image_url(:masthead).to_s %>
 
+<% if current_user %>
+  <% link_to "starred",   star_path(@recipe, type: "starred"), method: :put %>
+  <% link_to "unstarred", star_path(@recipe, type: "unstarred"), method: :put %>
+<% end %>
 
 <p>
   <strong>Name:</strong>
