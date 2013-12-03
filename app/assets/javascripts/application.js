@@ -16,3 +16,4 @@
 //= require_tree .
 //= require bootstrap/bootstrap
 //= require parsley/parsley.js
+//= require jquery.tokeninput

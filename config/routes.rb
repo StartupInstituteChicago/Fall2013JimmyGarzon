@@ -1,18 +1,22 @@
 RestaurantApp::Application.routes.draw do
+
+
   resources :categories
 
-  get "owners/dashboard"
+  get "users/dashboard"
   resources :reservations
+  resources :categories
 
-  devise_for :owners
+  devise_for :users
 
-  authenticated :owner do
-    root :to => "owners#dashboard", :as => "authenticated_root"
+  authenticated :user do
+    root :to => "users#dashboard", :as => "authenticated_root"
   end
   
   root "welcome#index"
 
   resources :restaurants do 
     resources :reservations
+    resources :stars
   end
 end

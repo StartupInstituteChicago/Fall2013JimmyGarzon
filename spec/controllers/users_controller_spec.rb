@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe OwnersController do
+describe UsersController do
 
   describe "GET 'dashboard'" do
     it "returns http success" do

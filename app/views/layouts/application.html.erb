@@ -3,18 +3,18 @@
 <head>
   <title>RestaurantApp</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "token-input" , "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<div id="owner_nav">
-	<% if owner_signed_in? %>
-		Signed in as <%= current_owner.email %>. Not you?
-		<%= link_to "Sign out", destroy_owner_session_path, :method => :delete %>
+<div id="user_nav">
+	<% if user_signed_in? %>
+		Signed in as <%= current_user.email %>. Not you?
+		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 	<% else %>
-		<%= link_to "Sign up", new_owner_registration_path %> or
-		<%= link_to "Sing in", new_owner_session_path %>
+		<%= link_to "Sign up", new_user_registration_path %> or
+		<%= link_to "Sing in", new_user_session_path %>
 	<% end %>
 </div>
 
@@ -26,6 +26,8 @@
 <%= yield %>
 
 <hr>
+
+<%= yield :token_input_caller %>
 
 </body>
 

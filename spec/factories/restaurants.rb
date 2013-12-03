@@ -1,7 +1,7 @@
 FactoryGirl.define do 
 	factory :restaurant do 
 		name "Wendys"
-		owner_id 1
+		user_id 1
 		street "1 Main"
 		city "Springfield"
 		state "IL"

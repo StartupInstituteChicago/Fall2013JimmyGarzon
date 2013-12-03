@@ -10,5 +10,5 @@ categories_arr = %w(American Chinese Mexican Spanish German Colombian Brazilian 
 categories_arr.each {|category| Category.find_or_create_by(name: category)}
 
 10.times do |count|
-  Restaurant.create(name: "MyRestaurant_#{count+1}", description: "", street: "", city: "", state: "", zipcode: "", phone: "", image: nil, menu: nil, owner_id: 1)
+  Restaurant.create(name: "MyRestaurant_#{count+1}", description: "", street: "", city: "", state: "", zipcode: "", phone: "", image: nil, menu: nil, user_id: 1, category_ids: [1, 2, 3])
 end
