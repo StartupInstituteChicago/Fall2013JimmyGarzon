@@ -1,0 +1,12 @@
+<% if @restaurant.starred_by.include?(current_user) %>
+<% @star = Star.where("restaurant_id = ? AND user_id = ?", @restaurant, current_user)%>
+
+	<div id='remove_star'> Hey <%= current_user.name%> you have starred this restaurant.
+	<%= link_to "Remove now", restaurant_star_path(@restaurant.id, @star.ids), method: :delete, data: {confirm: "Are you sure?"}, remote: true %>
+	</div>
+
+<% else %>
+	<div id = 'add_star'>Hey <%= current_user.name%> you haven't starred this restaurant. 
+	<%= link_to "Star now", restaurant_stars_path(@restaurant.id), method: :post, id: "add_star", remote: true %>
+	</div>
+<% end %>
