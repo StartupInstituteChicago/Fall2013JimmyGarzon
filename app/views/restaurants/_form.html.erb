@@ -66,74 +66,71 @@
 	<%= f.file_field :menu %>
 	</p>
 
-	<div  id="schedule">
-
-		<table>
-			<tr>
-				<th>day</th>
-				<th>opening</th>
-				<th>closing</th>
-				<th>closed</th>	
-			</tr>
+	<table id="schedule">
+		<caption>Restaurant open times</caption>
+		<tr>
+			<th>day</th>
+			<th>opening</th>
+			<th>closing</th>
+			<th>closed</th>	
+		</tr>
+		
+		<tr>
 			
-			<tr>
-				
-				<td><%= 'monday' %></td>
-				<td><%= f.time_select :monday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :monday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>
+			<td><%= 'monday' %></td>
+			<td><%= f.time_select :monday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :monday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>
 
-			<tr>
-				
-				<td><%= 'tuesday' %></td>
-				<td><%= f.time_select :tuesday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :tuesday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>
-			<tr>
-				
-				<td><%= 'wednesday' %></td>
-				<td><%= f.time_select :wednesday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :wednesday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>
-
-			<tr>
-				
-				<td><%= 'thursday' %></td>
-				<td><%= f.time_select :thursday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :thursday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>
-			<tr>
-				
-				<td><%= 'friday' %></td>
-				<td><%= f.time_select :friday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :friday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>
-
-			<tr>
-				
-				<td><%= 'saturday' %></td>
-				<td><%= f.time_select :saturday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :saturday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>	
-
-			<tr>
-				
-				<td><%= 'sunday' %></td>
-				<td><%= f.time_select :sunday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
-				<td><%= f.time_select :sunday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
-				<td><%= check_box_tag "closed" %></td>
-			</tr>		
-
+		<tr>
 			
-		</table>
+			<td><%= 'tuesday' %></td>
+			<td><%= f.time_select :tuesday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :tuesday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>
+		<tr>
+			
+			<td><%= 'wednesday' %></td>
+			<td><%= f.time_select :wednesday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :wednesday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>
 
-	</div>
+		<tr>
+			
+			<td><%= 'thursday' %></td>
+			<td><%= f.time_select :thursday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :thursday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>
+		<tr>
+			
+			<td><%= 'friday' %></td>
+			<td><%= f.time_select :friday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :friday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>
+
+		<tr>
+			
+			<td><%= 'saturday' %></td>
+			<td><%= f.time_select :saturday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :saturday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>	
+
+		<tr>
+			
+			<td><%= 'sunday' %></td>
+			<td><%= f.time_select :sunday_open_at, {:ampm => true, :default => {:hour => '6', :minute => '00'}} %></td>
+			<td><%= f.time_select :sunday_close_at, {:ampm => true, :default => {:hour => '22', :minute => '00'}} %></td>
+			<td><%= check_box_tag "closed" %></td>
+		</tr>		
+
+		
+	</table>
 	
 	
 	<p>
