@@ -13,9 +13,3 @@ RoR and gems currently used by this app are:
 * devise
 
 * mailcatcher
-
-* ...
-
-
-
-<tt>rake doc:app</tt>.
