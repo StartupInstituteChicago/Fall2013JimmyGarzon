@@ -1,18 +1,5 @@
-<h1>Users#dashboard</h1>
-
-
-<table class='table table-striped'>
-	 <caption>My restaurants</caption>
-	<th>Name</th>
-	<th>Current Reservations</th>
-	<th>View Reservations</th>
-
- <% @restaurants.each do |restaurant|  %>
- <tr>
- 	<td><%= restaurant.name %> </td>
- 	<td><%=restaurant.reservations.count %></td>
- 	<td><%= link_to "Reservations",   restaurant_reservations_path(restaurant) %></td>
- </tr>
- 
- <% end %>
-</table>
+<% if current_user.role == 'owner' %>
+	<%= render 'owner' %>
+<% else  %>
+	<%= render 'patron' %>
+<% end %>

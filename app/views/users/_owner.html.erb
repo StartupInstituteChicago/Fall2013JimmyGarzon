@@ -1,0 +1,20 @@
+<h1>Owner's dashboard</h1>
+
+
+<table class='table table-striped'>
+	 <caption>My restaurants</caption>
+	<th>Name</th>
+	<th> Stars</th>
+	<th>Current Reservations</th>
+	<th>View Reservations</th>
+
+ <% @restaurants.each do |restaurant|  %>
+ <tr>
+ 	<td><%= link_to restaurant.name, restaurant_path(restaurant) %></td>
+ 	<td> <%= restaurant.stars.count %> </td>
+ 	<td><%=restaurant.reservations.count %></td>
+ 	<td><%= link_to "Reservations",   restaurant_reservations_path(restaurant) %></td>
+ </tr>
+ 
+ <% end %>
+</table>

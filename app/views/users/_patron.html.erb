@@ -1,0 +1,5 @@
+<h1><%= "#{current_user.name}'s user dashboard"%></h1> <%= "#{current_user.name}, you have starred the
+followig restaurants" %> <ul>     <% @starred_by_user.each do |star| %>
+<li><%= link_to star.restaurant.name, restaurant_path(star.restaurant) %></li>
+<% end %> </ul>
+

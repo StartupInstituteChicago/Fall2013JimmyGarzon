@@ -13,7 +13,6 @@
 		<th></th>
 		<th></th>
 	</tr>
-	<% gmap = "http://maps.googleapis.com/maps/api/staticmap?center=60452&zoom=12&size=400x400&sensor=false&key=#{@gmaps_key}&markers=color:red"%>
 
 	<% @restaurants.each do |restaurant| %>
 		<tr>
@@ -28,12 +27,11 @@
 		</tr>
 		<% full_address = restaurant.street + ' ' + restaurant.city + ' ' +restaurant.state + ' ' + restaurant.zipcode
  %>
- <% gmap << '|' + "#{url_encode(full_address)}" unless full_address == "" %>
+
 	<% end %>
 </table>
 
-<%# gmap %>
-
 
 <%= link_to "New Restaurant", new_restaurant_path %>
-<p><%=image_tag gmap %></p>
+
+<p><%= image_tag all_restaurants_gmap(@restaurants) %></p>

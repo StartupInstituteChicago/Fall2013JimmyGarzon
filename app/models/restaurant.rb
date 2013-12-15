@@ -15,7 +15,12 @@ class Restaurant < ActiveRecord::Base
 	validates_presence_of :name, :user_id
 
 	def full_address
-		self.street + ' ' + self.city + ' ' +self.state + ' ' + self.zipcode
+		address = ""
+		address << self.street unless self.street == ""
+		address << ' ' + self.city unless self.city == ""
+		address << ' ' + self.state unless self.state == ""
+		address << ' ' + self.zipcode unless self.zipcode == ""
+		return address
 	end
 
 	attr_reader :category_tokens

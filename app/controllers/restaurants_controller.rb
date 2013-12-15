@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
 	before_filter :authenticate_user!
 	before_filter :credentials_filter, :only => [:edit, :destroy]
 
+
 	def new
 		@restaurant = Restaurant.new
 	end
@@ -20,25 +21,11 @@ class RestaurantsController < ApplicationController
 
 	def show
 		@restaurant = Restaurant.find(params[:id])
-		@gmaps_key = ENV["GMAPS_API_KEY"]
 		@can_edit = @restaurant.user == current_user
 	end
 
-	# def remove_star
-	# 	@restaurant.stars.delete(current_user)
-	# end
-
-	# def add_star
-	# 	@restaurant.stars << current_user
-	# 	respond_to do |format|
-	# 		format.html { redirect_to restaurants_path }
-	# 		format.js
-	# 	end
-	# end
-
 	def index
 		@restaurants = Restaurant.find(:all)
-		@gmaps_key = ENV["GMAPS_API_KEY"]
 	end
 
 	def edit
